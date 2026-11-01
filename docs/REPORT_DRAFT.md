@@ -45,7 +45,10 @@ The project adopted an agile, modular development methodology structured in four
 - **Client Framework:** React.js (v19) with Vite
 - **Styling & UI:** Tailwind CSS (v4) with Lucide React iconography
 - **Data Visualization:** Recharts (Dynamic category distribution and status breakdown)
-- **Runtime Environment:** Node.js (v20.x / v22.x LTS)
+- **Runtime Environment:** Node.js (v24.x LTS)
+- **AWS Deployment Region:** ap-south-1 (Asia Pacific - Mumbai)
+- **Production API Gateway:** `https://ng7dtfqk39.execute-api.ap-south-1.amazonaws.com/prod`
+- **Managed Database Table:** Amazon DynamoDB (`FreshTrackItems`)
 - **Web Server / Proxy:** Express.js (Local Emulation) / Amazon API Gateway (Cloud Production)
 - **Infrastructure-as-Code:** AWS Serverless Application Model (SAM) / CloudFormation (`template.yaml`)
 

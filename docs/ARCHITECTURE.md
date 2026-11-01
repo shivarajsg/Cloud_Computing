@@ -26,15 +26,18 @@ FreshTrack employs a modern **Serverless Cloud Architecture** designed to minimi
                       +-----------------------------------+
                       |       Amazon API Gateway          |
                       |  - REST API Proxy Integration     |
+                      |  - Region: ap-south-1 (Mumbai)    |
                       |  - CORS Header Handling           |
-                      |  - Request Throttling             |
+                      |  - Endpoint: ng7dtfqk39.execute-  |
+                      |    api.ap-south-1.amazonaws.com  |
                       +-----------------+-----------------+
                                         |
                           Synchronous Lambda Invocation
                                         v
                       +-----------------------------------+
                       |           AWS Lambda              |
-                      |  - Node.js 20.x / 22.x Runtime    |
+                      |  - Function: FreshTrackFunction   |
+                      |  - Node.js 24.x Runtime           |
                       |  - Input Validation & Security    |
                       |  - Expiry Calculation Engine      |
                       +-----------------+-----------------+

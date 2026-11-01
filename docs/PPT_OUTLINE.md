@@ -63,9 +63,9 @@
 |---|---|---|
 | **Frontend** | React 19 + Vite + Tailwind CSS | Ultra-fast responsive user interface |
 | **Icons & Charts**| Lucide React & Recharts | Visual indicators and category bar charts |
-| **Compute** | AWS Lambda (Node.js) | Serverless backend execution without EC2 overhead |
-| **API Proxy** | Amazon API Gateway | Secure REST endpoints and CORS preflight |
-| **Database** | Amazon DynamoDB | High-performance NoSQL key-value persistence |
+| **Compute** | AWS Lambda (Node.js 24.x in ap-south-1) | Serverless backend execution without EC2 overhead |
+| **API Proxy** | Amazon API Gateway (`ng7dtfqk39`) | Secure REST endpoints and CORS preflight |
+| **Database** | Amazon DynamoDB (`FreshTrackItems`) | High-performance NoSQL key-value persistence |
 | **Hosting** | Vercel Edge CDN | Global low-latency frontend static asset delivery |
 
 ---
