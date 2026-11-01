@@ -1,0 +1,25 @@
+{
+  "name": "freshtrack-cloud-system",
+  "version": "1.0.0",
+  "description": "FreshTrack - Cloud-Based Smart Expiry & Food Waste Alert System",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "start:backend": "npm --prefix backend start",
+    "test:frontend": "npm --prefix frontend test",
+    "test:backend": "npm --prefix backend test",
+    "test": "npm run test:frontend && npm run test:backend"
+  },
+  "keywords": [
+    "cloud-computing",
+    "aws-lambda",
+    "dynamodb",
+    "food-waste",
+    "serverless",
+    "react",
+    "vite"
+  ],
+  "author": "FreshTrack Lab Team",
+  "license": "ISC"
+}

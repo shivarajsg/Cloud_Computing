@@ -1,0 +1,30 @@
+{
+  "name": "freshtrack-backend",
+  "version": "1.0.0",
+  "description": "FreshTrack Cloud Backend - AWS Lambda & DynamoDB Food Expiry Alert System",
+  "main": "src/app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/local-server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "cloud-computing",
+    "aws-lambda",
+    "dynamodb",
+    "food-waste",
+    "serverless"
+  ],
+  "author": "FreshTrack Lab Team",
+  "license": "ISC",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.758.0",
+    "@aws-sdk/lib-dynamodb": "^3.758.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

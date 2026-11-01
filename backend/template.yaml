@@ -1,0 +1,126 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  FreshTrack - Cloud-Based Smart Expiry & Food Waste Alert System Backend
+  College Cloud Computing Lab Mini-Project
+  AWS Lambda + Amazon API Gateway + Amazon DynamoDB
+
+Globals:
+  Function:
+    Timeout: 15
+    MemorySize: 256
+    Runtime: nodejs24.x
+    Architectures:
+      - x86_64
+
+Resources:
+  # 1. Amazon API Gateway with CORS Configuration
+  FreshTrackApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Cors:
+        AllowMethods: "'OPTIONS,GET,POST,PUT,DELETE'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+
+  # 2. AWS Lambda Function
+  FreshTrackFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: src/app.handler
+      Runtime: nodejs24.x
+      Description: FreshTrack food inventory & smart expiry handler
+      Policies:
+        - Statement:
+            - Sid: FreshTrackDynamoDBPermissions
+              Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+                - dynamodb:DeleteItem
+                - dynamodb:Scan
+                - dynamodb:DescribeTable
+              Resource: !GetAtt FreshTrackItemsTable.Arn
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref FreshTrackItemsTable
+          USE_AWS_DYNAMO: 'true'
+      Events:
+        HealthCheck:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FreshTrackApi
+            Path: /health
+            Method: GET
+        GetAllItems:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FreshTrackApi
+            Path: /items
+            Method: GET
+        GetSingleItem:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FreshTrackApi
+            Path: /items/{id}
+            Method: GET
+        CreateItem:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FreshTrackApi
+            Path: /items
+            Method: POST
+        UpdateItem:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FreshTrackApi
+            Path: /items/{id}
+            Method: PUT
+        DeleteItem:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FreshTrackApi
+            Path: /items/{id}
+            Method: DELETE
+
+  # 3. Amazon DynamoDB Table
+  FreshTrackItemsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: FreshTrackItems
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: itemId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: itemId
+          KeyType: HASH
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: false
+      Tags:
+        - Key: Project
+          Value: FreshTrack
+        - Key: Environment
+          Value: LabMiniProject
+
+Outputs:
+  ApiUrl:
+    Description: "Amazon API Gateway Base URL for frontend configuration"
+    Value: !Sub "https://${FreshTrackApi}.execute-api.${AWS::Region}.amazonaws.com/prod"
+    Export:
+      Name: FreshTrackApiUrl
+
+  LambdaFunctionArn:
+    Description: "FreshTrack Lambda Function ARN"
+    Value: !GetAtt FreshTrackFunction.Arn
+    Export:
+      Name: FreshTrackLambdaFunctionArn
+
+  DynamoDBTableName:
+    Description: "Amazon DynamoDB Table Name"
+    Value: !Ref FreshTrackItemsTable
+    Export:
+      Name: FreshTrackDynamoDBTableName
