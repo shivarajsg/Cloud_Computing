@@ -2,11 +2,12 @@
 > **College Cloud Computing Lab Mini-Project**  
 > *Demonstrating Serverless Cloud Architecture with AWS Lambda, Amazon API Gateway, and Amazon DynamoDB*
 
+[![Live Public Website](https://img.shields.io/badge/Live%20Website-Vercel%20Deployed-10b981?logo=vercel)](https://cloud-computing-one-orcin.vercel.app/)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-shivarajsg%2FCloud__Computing-181717?logo=github)](https://github.com/shivarajsg/Cloud_Computing)
 [![AWS Deployed Region](https://img.shields.io/badge/AWS%20Region-ap--south--1%20(Mumbai)-ff9900?logo=amazon-aws)](https://ap-south-1.console.aws.amazon.com)
 [![AWS API Gateway](https://img.shields.io/badge/API%20Gateway-Live%20Verified-10b981?logo=amazon-aws)](https://ng7dtfqk39.execute-api.ap-south-1.amazonaws.com/prod/health)
 [![DynamoDB Table](https://img.shields.io/badge/DynamoDB-FreshTrackItems%20(Active)-4053D6?logo=amazon-dynamodb)](https://ap-south-1.console.aws.amazon.com/dynamodbv2)
-[![Build & Test Status](https://img.shields.io/badge/tests-22%20passed-10b981.svg)](https://github.com/shivarajsg/Cloud_Computing)
+[![Build & Test Status](https://img.shields.io/badge/tests-30%20passed-10b981.svg)](https://github.com/shivarajsg/Cloud_Computing)
 [![Frontend](https://img.shields.io/badge/frontend-React%2019%20%2B%20Vite-61dafb.svg?logo=react)](https://vitejs.dev)
 [![Styling](https://img.shields.io/badge/styling-Tailwind%20CSS%20v4-38bdf8.svg?logo=tailwindcss)](https://tailwindcss.com)
 
@@ -32,6 +33,7 @@ Households, grocery stores, and food businesses often forget expiration dates of
 
 | Component | AWS Resource / URL | Status |
 |---|---|:---:|
+| **Public Web Application** | [https://cloud-computing-one-orcin.vercel.app/](https://cloud-computing-one-orcin.vercel.app/) | **Live / Deployed (Vercel)** |
 | **API Gateway Endpoint** | `https://ng7dtfqk39.execute-api.ap-south-1.amazonaws.com/prod` | **Active / Verified** |
 | **Health Check URL** | `https://ng7dtfqk39.execute-api.ap-south-1.amazonaws.com/prod/health` | **HTTP 200 OK** |
 | **AWS Region** | `ap-south-1` (Asia Pacific - Mumbai) | **Active** |
@@ -246,14 +248,15 @@ All endpoints are deployed and accessible under:
 
 ## 10. Deployment to Vercel
 
-The frontend is ready for zero-config Vercel deployment:
+The frontend is live and deployed on Vercel:
+👉 **[https://cloud-computing-one-orcin.vercel.app/](https://cloud-computing-one-orcin.vercel.app/)**
 
-1. Import this repository `https://github.com/shivarajsg/Cloud_Computing` in [Vercel](https://vercel.com).
-2. Set **Root Directory** to `frontend`.
-3. Set **Framework Preset** to `Vite`.
-4. Add Environment Variable:
-   - `VITE_API_BASE_URL` = `https://ng7dtfqk39.execute-api.ap-south-1.amazonaws.com/prod`
-5. Click **Deploy**.
+Continuous deployment is linked directly to the GitHub repository:
+- **Repository:** `https://github.com/shivarajsg/Cloud_Computing`
+- **Root Directory:** `frontend`
+- **Framework Preset:** `Vite`
+- **Environment Variable:** `VITE_API_BASE_URL` = `https://ng7dtfqk39.execute-api.ap-south-1.amazonaws.com/prod`
+- **SPA Routing:** Configured via `frontend/vercel.json` for seamless client-side navigation.
 
 ---
 

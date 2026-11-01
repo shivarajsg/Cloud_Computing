@@ -103,6 +103,7 @@ FreshTrack employs a modern **Serverless Cloud Architecture** designed to minimi
 
 ### D. Vercel Edge Hosting (Frontend Delivery)
 - **Role:** Static asset distribution, CI/CD pipeline, and SSL termination.
+- **Production URL:** [https://cloud-computing-one-orcin.vercel.app/](https://cloud-computing-one-orcin.vercel.app/)
 - Global CDN caching guarantees sub-100ms dashboard load times on mobile and desktop browsers.
 
 ---

@@ -49,6 +49,7 @@ The project adopted an agile, modular development methodology structured in four
 - **AWS Deployment Region:** ap-south-1 (Asia Pacific - Mumbai)
 - **Production API Gateway:** `https://ng7dtfqk39.execute-api.ap-south-1.amazonaws.com/prod`
 - **Managed Database Table:** Amazon DynamoDB (`FreshTrackItems`)
+- **Public Vercel Frontend:** `https://cloud-computing-one-orcin.vercel.app/`
 - **Web Server / Proxy:** Express.js (Local Emulation) / Amazon API Gateway (Cloud Production)
 - **Infrastructure-as-Code:** AWS Serverless Application Model (SAM) / CloudFormation (`template.yaml`)
 
